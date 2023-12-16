@@ -25,3 +25,4 @@ node('built-in')
         cicd.newDeploy("${env.WORK_SPACE}","172.31.42.203","prodapp")
     }
 }
+ 
