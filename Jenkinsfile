@@ -13,15 +13,15 @@ node('built-in')
     }
     stage('cont deploy')
     {
-        cicd.newDeploy("ScriptedPipelinewithSharedlibrary","172.31.47.3","testapp")
+        cicd.newDeploy("${env.WORK_SPACE}","172.31.47.3","testapp")
     }
     stage('cont test')
     {
          cicd.newGit('https://github.com/intelliqittrainings/FunctionalTesting.git')
-         cicd.newrunSelenium("ScriptedPipelinewithSharedlibrary")
+         cicd.newrunSelenium("${env.WORK_SPACE}")
     }
     stage('cont delivery')
     {
-        cicd.newDeploy("ScriptedPipelinewithSharedlibrary","172.31.42.203","prodapp")
+        cicd.newDeploy("${env.WORK_SPACE}","172.31.42.203","prodapp")
     }
 }
